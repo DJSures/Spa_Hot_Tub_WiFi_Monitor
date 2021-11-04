@@ -3,13 +3,14 @@
 
    Updated: 2021/10/31
 
-   1) Choose the wifi mode by uncomment AP_MODE or not
-   2) Enter the SSID/PWD for either AP or Client mode
-   3) Connect GND from the Spa (Pin #4) to the Heltec GND (they need to have common gnd)
-   4) Connect Spa Data (Pin #5) to Heltech pin #12
-   5) Connect Spa Clock (Pin #6) to Heltech pin #14
-   6) Get USER Key and API Token from https://pushover.net/api
-   7) Edit the #defines below
+  1) Choose the wifi mode by uncomment AP_MODE or not
+  2) Enter the SSID/PWD for either AP or Client mode
+  3) Connect GND from the Spa (Pin #4) to the Heltec GND (they need to have common gnd)
+  4) Connect Spa Data (Pin #5) to Heltech pin #12
+  5) Connect Spa Clock (Pin #6) to Heltech pin #14
+  6) Get USER Key and API Token from https://pushover.net/api
+  7) Edit the #defines below
+
 */
 
 // ----------------------------------------------------------------
@@ -33,16 +34,16 @@
 // This requires #define AP_MODE to be commented
 // Client mode means the ESP32 will connect to your router and you will have to know its IP Address
 // Or, you can check the USB serial debug output
-#define WIFI_CLIENT_SSID "MyWiFi"
-#define WIFI_CLIENT_PWD  "password"
+#define WIFI_CLIENT_SSID "macods"
+#define WIFI_CLIENT_PWD  "robdule"
 
 // PushOver credentials.
-#define PUSH_OVER_API_TOKEN "a5wv8d8u63asdf484p69971d"
-#define PUSH_OVER_USER_KEY "urn2q3sasdfvnz5cy7kkg52d"
+#define PUSH_OVER_API_TOKEN "a5wv8d8u6v484p69971d"
+#define PUSH_OVER_USER_KEY "urn2q3sewrnz5cy7kkg52d"
 
 // Push Notification Title
-#define PUSH_TITLE "My Hot Tub"
-#define PUSH_TITLE_ALARM "My Hot Tub ALERT"
+#define PUSH_TITLE "Camp Hot Tub"
+#define PUSH_TITLE_ALARM "Camp Hot Tub ALERT"
 
 // the pin used for the clock interrupt
 #define CLOCK_PIN 14
@@ -580,7 +581,9 @@ void loop() {
 
       notifyHTML("Heater is <span style='color: green; font-weight: bold;'>ON</span> ("
                  + String(_temp)
-                 + "F)");
+                 + "F. Last ran "
+                 + ( _heaterEndTime == 0 ? "n/a" : String(getTimeFormatted(millis() - _heaterEndTime)) )
+                 + " ago)");
     } else {
 
       _heaterEndTime = millis();
