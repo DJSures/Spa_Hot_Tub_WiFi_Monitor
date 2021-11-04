@@ -1,8 +1,9 @@
 # Spa_Hot_Tub_WiFi_Monitor
-Monitor your spa hot tub (gecko or Balboa) over WiFi with iphone/android push notifications.
+Monitor your spa hot tub (gecko or Balboa) over WiFi with iphone/android push notifications. I used a Heltec WiFi 32 because it has a nice little display and they're super compact. 
 
+# Connecting
 
-The Spa uses an RJ45 connector. 
+The Spa uses an RJ45 connector. I used a RJ45 splitter to connect both the top controls and this Heltec WiFi 32 monitor program thingy that I made.
 
 ![RJ45 connector](https://raw.githubusercontent.com/DJSures/Spa_Hot_Tub_WiFi_Monitor/main/Images/rj45.jpg)
 
