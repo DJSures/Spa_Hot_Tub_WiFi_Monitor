@@ -25,8 +25,14 @@ Connect the Heltec WiFi 32 to the Spa using these steps. Also configure the push
    5) Connect Spa Clock (Pin #6) to Heltech pin #14
    6) Get USER Key and API Token from https://pushover.net/api
    7) Edit the #defines below
-   
-# Challenges
+
+# How Does It Work?
+
+I created this to monitor the temperature and heater activity of my hot tub during the winter months. Up here in Canada, things freeze in the winter. If the power went out or GFI tripped then I want to know if my hot tub needs attention. You could put the Heltec in the spa and power it off USB, but I ran a 50ft RJ45 ethernet cable and put the Heltec in my house. This way I can update the firmware and see the display. 
+
+Anyway, so this little project will send a push notification to your phone every hour with the status of the hot tub temperature, heater and various other stats. The neat thing is you can see when the heater turns ON and OFF, and how long it was active for. Your phone will receive a push notification for the status change of the heater. That way, you can monitor how effecient the hot tub is at different temperatures when not in use. 
+
+# Rant
 
 A drunk monkey created the spa protocol and circuit on these things. The signal on the RJ45 is super noisy, and the whole protocol design really missed out on an opprotunity for being a lot smarter. Considering they use clock and data wires to send the display, they should have just used RX/TX for serial to have bi-directional communication. But, they didn't, so instead I had to reverse engineer their mess. You'll notice in my code that I sample the signal 100-200 times before validating the temperature or display. This is because for what ever reason the data bits will sometimes not be set. So, to trust the data and interpret the temperature, I have to sample the packet 200 times. UGH!
 
