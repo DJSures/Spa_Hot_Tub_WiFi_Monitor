@@ -3,6 +3,9 @@ Monitor your spa hot tub (gecko or Balboa) over WiFi with iphone/android push no
 
 
 The Spa uses an RJ45 connector. 
+
+![alt text](http://url/to/img.png)
+
 Pin 1	Power	Vcc
 Pin 2	Input	Light
 Pin 3	Input	Pump 1
