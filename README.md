@@ -3,7 +3,7 @@ Monitor your spa hot tub (gecko or Balboa) over WiFi with iphone/android push no
 
 # Push Notifications
 
-Push notifications are sent to the mobile device using the PushOver app. I recommend paying for it to support the developers because it's super awesome. The alerts that you will receive include high/low temperature warnings and lost communication errors. Every hour a "ping" with latest information is pushed. Otherwise, a heater ON/OFF change is sent so you can see how often the heater is running. Here's a screenshot of the push notification history on my iPhone. You can see how the heater change is sent with information about the last run. Also you can see the hourly update notification. There is also a message in this example of lost communication - this is because i had the hot tub powered off at that time while cleaning the filter.
+Push notifications are sent to the mobile device using the PushOver app. I recommend paying for it to support the developers because it's super awesome. The alerts that you will receive include high/low temperature warnings and lost communication errors. Every hour a "ping" with latest information is pushed. Otherwise, a heater ON/OFF change is sent so you can see how often the heater is running. Here's a screenshot of the push notification history on my iPhone. You can see how the heater change is sent with information about the last run. Also you can see the hourly update notification. There is also a message in this example of lost communication - this is because i had the hot tub powered off at that time while cleaning the filter. T
 
 ![Push notification example](https://github.com/DJSures/Spa_Hot_Tub_WiFi_Monitor/blob/main/Images/IMG_7088.PNG?raw=true)
 
@@ -48,4 +48,4 @@ Anyway, so this little project will send a push notification to your phone every
 
 A drunk monkey created the spa protocol and circuit on these things in the mid 90's - and nothing has changed since. The signal on the RJ45 is super noisy, and the protocol design really missed out on an opprotunity for being a lot smarter. Considering they use clock and data wires to send the display, they should have just used RX/TX for serial to have bi-directional communication. But, they didn't, so instead I had to reverse engineer their mess. You'll notice in my code that I sample the signal 100-200 times before validating the temperature or display. This is because for what ever reason the data bits will sometimes not be set. So, to trust the data and interpret the temperature, I have to sample the packet 200 times. UGH!
 
-You'll notice a number of comical hacks in my code because of their poor understanding of technology when the first spa packs were created. Rand is over :)
+You'll notice a number of comical hacks in my code because of their poor understanding of technology when the first spa packs were created. Rant is over :)
